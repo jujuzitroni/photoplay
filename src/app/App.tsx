@@ -8,6 +8,9 @@ function App(): JSX.Element {
         <Route path="/help">
           <p>Help</p>
         </Route>
+        <Route path="/about">
+          <p>About</p>
+        </Route>
         <Route path="/">
           <p>Home</p>
         </Route>

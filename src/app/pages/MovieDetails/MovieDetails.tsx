@@ -9,6 +9,7 @@ import Rating from '../../components/Rating/Rating';
 import NavigationGenre from '../../components/NavigationGenre/NavigationGenre';
 import NavBar from '../../components/NavBar/NavBar';
 import useMovie from '../../hooks/useMovie';
+import Cast from '../../components/Cast/Cast';
 
 function MovieDetails(): JSX.Element {
   const { id } = useParams<{ id: string }>();
@@ -27,8 +28,6 @@ function MovieDetails(): JSX.Element {
   }
 
   const genresArray = movie.genres.map((genre) => genre.name);
-  const castName = movie.actors.map((actor) => actor.name);
-  const castImg = movie.actors.map((actor) => actor.profilePath);
 
   return (
     <div className={styles.container}>
@@ -46,6 +45,7 @@ function MovieDetails(): JSX.Element {
         <Button>Watch now</Button>
         <div>
           <p className={styles.artistCardTitle}>Cast</p>
+          <Cast actors={movie.actors} />
           <div className={styles.artistCards}>
             {movie.actors.map((actor) => (
               <ArtistCard imgSrc={actor.profilePath} artistName={actor.name} />
